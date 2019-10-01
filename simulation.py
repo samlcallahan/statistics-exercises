@@ -28,7 +28,7 @@ p_3days = (np.random.random((1000000,3)) > .7).prod(1).mean()
 p_week = (np.random.random((1000000,7)) <= .7).prod(1).mean()
 
 bday_23 = np.random.randint(0,365,(1000000,23))
-bday_23 = pd.DataFrame(bday_sample_23)
+bday_23 = pd.DataFrame(bday_23)
 p_shared_23 = bday_23.apply(lambda x: len(set(x)) != len(x),axis=1).mean()
 bday_20 = pd.DataFrame(np.random.randint(0,365,(1000000,20)))
 p_shared_20 = bday_20.apply(lambda x: len(set(x)) != len(x),axis=1).mean()
