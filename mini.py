@@ -5,7 +5,7 @@ from scipy import stats
 die_distribution = stats.randint(1, 7)
 
 # What is the probability of rolling a 1?
-p_under_1 = die_distribution.cdf(1)
+p_under_1 = die_distribution.pmf(1)
 
 # There's a 1 in 2 chance that I'll roll higher than what number?
 n_1_in_2_over = die_distribution.isf(.5)
