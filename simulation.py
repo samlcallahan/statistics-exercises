@@ -11,7 +11,8 @@ p_over_three = (coins.sum(1) > 3).mean()
 billboards = np.random.random((1000000,2))
 p_two_data_science = (billboards <= .25).prod(1).mean()
 
-poptarts = np.random.normal(3, 1.5,(1000000,5))
+poptarts = np.round(np.random.normal(3, 1.5,(1000000,5)))
+poptarts = np.where(poptarts < 0, 0, poptarts)
 p_friday = (poptarts.sum(1) <= 16).mean()
 
 men = np.random.normal(178, 8, 1000000)
