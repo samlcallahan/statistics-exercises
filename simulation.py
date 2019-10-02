@@ -25,7 +25,7 @@ p_150_failure = 1 - (np.random.random((1000000,150)) > p_fail).prod(1).mean()
 p_450 = (np.random.random((1000000,450)) > p_fail).prod(1).mean()
 
 p_3days = (np.random.random((1000000,3)) > .7).prod(1).mean()
-p_week = (np.random.random((1000000,7)) <= .7).prod(1).mean()
+p_week = (np.random.random((1000000,7)) <= .7).max(1).mean()
 
 bday_23 = np.random.randint(0,365,(1000000,23))
 bday_23 = pd.DataFrame(bday_23)
