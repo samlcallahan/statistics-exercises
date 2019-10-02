@@ -26,7 +26,7 @@ p_under_6 = die_distribution.cdf(6)
 n_1_in_3_over = die_distribution.isf(1/3)
 
 # What is the probability of rolling higher than a 1?
-p_over_1_over = die_distributionl.sf(1)
+p_over_1_over = die_distribution.sf(1)
 
 # There's a 2 in 3 chance that my roll will be less than or equal to what number?
 n_2_in_3_under = die_distribution.ppf(2/3)
