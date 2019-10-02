@@ -1,4 +1,11 @@
 from scipy import stats
+import seaborn as sns
+
+cars = stats.poisson(2)
+sns.distplot(cars.rvs(10000))
+p_no_cars = cars.cdf(0)
+p_at_least_3 = cars.sf(2)
+p_at_least_1 = cars.sf(0)
 
 grades = stats.norm(3, .3)
 top_5 = grades.isf(.05)
