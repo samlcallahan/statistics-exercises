@@ -34,7 +34,9 @@ def get_db_url(username, hostname, password, db_name):
 
 query = '''
     select * from salaries
+    where to_date like '9999%%';
 '''
+
 url = get_db_url(user,host,password,'employees')
 
 salaries = pd.read_sql(query,url)
