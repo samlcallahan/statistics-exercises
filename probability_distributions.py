@@ -81,5 +81,3 @@ p_under_60k_x = (salaries['salary'] < 60_000).mean()
 p_over_95k_x = (salaries['salary'] >= 95_000).mean()
 p_between_65k_and_80k_x = ((salaries['salary'] <= 80_000) & (salaries['salary'] > 65_000)).mean()
 top_5_percent_x = np.percentile(salaries['salary'], 95)
-
-test_change
