@@ -1,11 +1,12 @@
 from scipy import stats
-import seaborn as sns
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from env import user, host, password
 
 cars = stats.poisson(2)
-sns.distplot(cars.rvs(10000))
+x = np.arange(0,10)
+plt.bar(x,cars.pmf(x))
 p_no_cars = cars.cdf(0)
 p_at_least_3 = cars.sf(2)
 p_at_least_1 = cars.sf(0)
