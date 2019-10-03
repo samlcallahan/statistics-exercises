@@ -19,7 +19,7 @@ at_least_97 = clicks.sf(97)
 
 in_first_60 = stats.binom(60, .01).sf(0)
 
-n_visitors = .9 * 22 * 3
+n_visitors = round(.9 * 22 * 3)
 clean_up = stats.binom(n_visitors, .03)
 p_day_clean = clean_up.sf(0)
 p_2_unclean = clean_up.cdf(0) ** 2
