@@ -1,5 +1,7 @@
 from scipy import stats
 import seaborn as sns
+import pandas as pd
+from env import user, host, password
 
 cars = stats.poisson(2)
 sns.distplot(cars.rvs(10000))
@@ -26,3 +28,20 @@ p_week_unclean = clean_up.cdf(0) ** 5
 starting_line = stats.norm(15, 3)
 max_people = (60 - 15 - 10) // 2
 p_15_min_left = starting_line.cdf(max_people)
+
+def get_db_url(username, hostname, password, db_name):
+    return f'mysql+pymysql://{username}:{password}@{hostname}/{db_name}'
+
+query = '''
+    select * from salaries
+'''
+url = get_db_url(user,host,password,'employees')
+
+salaries = pd.read_sql(query,url)
+mean = salaries['salary'].mean()
+std = salaries['salary'].std()
+salary_dist = stats.norm(mean,std)
+p_under_60k = salary_dist.cdf(60_000)
+p_over_95k = salary_dist.sf(95_000)
+p_between_65k_and_80k = salary_dist.cdf(80_000) - salary_dist.sf(65_000)
+top_5_percent = salary_dist.isf(.05)
